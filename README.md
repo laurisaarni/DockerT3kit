@@ -36,7 +36,7 @@ Add `lauri/dockert3kit` as dev dependency in your composer, using the latest sta
 *Example*:
 
 ```
-composer require --dev lauri/dockert3kit 2.2.*
+composer require --dev lauri/dockert3kit '~2.2.0'
 ```
 
 *Note*:
