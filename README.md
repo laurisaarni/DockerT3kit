@@ -167,6 +167,15 @@ vendor/bin/dockert3kit run app /bin/bash
 curl -X GET http://couchdb:5984/_all_dbs
 ```
 
+## Access Apache Solr server
+
+From your host machine, you can access Apache Solr server from web interface:
+
+__Web__: [http://hostname:8282/solr/](http://hostname:8282/solr/) -> replace `hostname` with project name
+
+From inside your `app` container, Apache Solr server will be available with following url: http://solr:8080/solr/
+
+
 ## Attach to a running service
 
 Run `vendor/bin/dockert3kit ps` and copy the container's name that you want to attach to.

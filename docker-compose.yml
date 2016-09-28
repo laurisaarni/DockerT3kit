@@ -16,6 +16,7 @@ app:
     - redis
     - elasticsearch
     - couchdb
+    - solr
   environment:
     - HOST_USER_ID
 
@@ -88,3 +89,8 @@ couchdb:
   image: klaemo/couchdb:1.6
   ports:
     - "5984:5984"
+
+solr:
+  image: writl/solr-typo3:4.10.4-4
+  ports:
+   - "8282:8080"
