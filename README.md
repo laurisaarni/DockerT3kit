@@ -1,7 +1,7 @@
 # DockerT3kit helps you developing t3kit based TYPO3 CMS projects
 
-DockerT3kit creates the necessary Docker containers (webserver, database, php, mail, redis, elasticsearch, couchdb)
-to run your TYPO3 CMS project. The package provides a wrapper script in `vendor/bin/dockert3kit`
+DockerT3kit creates the necessary Docker containers (webserver, database, php, mail and solr)
+to run your t3kit based TYPO3 CMS project. The package provides a wrapper script in `vendor/bin/dockert3kit`
 which simplifies the handling of docker and does all the configuration necessary.
 
 We created this package to make development on TYPO3 CMS projects easier and
@@ -36,7 +36,7 @@ Add `lauri/dockert3kit` as dev dependency in your composer, using the latest sta
 *Example*:
 
 ```
-composer require --dev lauri/dockert3kit '~2.2.0'
+composer require --dev lauri/dockert3kit '~2.2.1'
 ```
 
 *Note*:
@@ -118,7 +118,7 @@ the port accordingly. If you are using PHPStorm, this link may be useful for you
 
     vendor/bin/dockert3kit run SERVICE /bin/bash
 
-SERVICE can currently be `app`, `web`, `data`, `db`, `redis`, `elasticsearch` or `couchdb`.
+SERVICE can currently be `app`, `web`, `data`, `db` or `solr`.
 
 ## Access project url when inside `app` container
 
@@ -151,21 +151,6 @@ To be able to do that, we have mapped database port inside the container (which 
 host machine through `3307` port.
 
 ![Screenshot of MySQL Workbench interface](/docs/MySQL-Workbench.png "MySQL Workbench interface")
-
-## Access CouchDB
-
-From your host machine, you can access couchdb from web interface or command line:
-
-__Web__: [http://hostname-couchdb:5984/_utils/](http://hostname-couchdb:5984/_utils/) -> replace `hostname` with project name
-
-__Cli__: `curl -X GET http://hostname-couchdb:5984/_all_dbs`
-
-From inside your `app` container, you can also access couchdb through the command line:
-
-```
-vendor/bin/dockert3kit run app /bin/bash
-curl -X GET http://couchdb:5984/_all_dbs
-```
 
 ## Access Apache Solr server
 
