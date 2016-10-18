@@ -53,6 +53,7 @@ if [ "$action" = "up" ]; then
 	# Get ip address of web container, store in ip_address.txt file and send it to app container
 	${wrapped_command} run --rm -e PROJECT_NAME=${projectname} web /entrypoint.sh
 	${wrapped_command} run --rm app /entrypoint.sh
+	${wrapped_command} run --rm -e DOCKER=1 db /restoredb.sh
 
 	# Print information about running app container
 	echo "####"
