@@ -23,6 +23,7 @@ data:
   command: echo "Data container has started"
   volumes:
     - ../../..:/var/www
+    - ../../../../db:/var/www/shared/db
     - /var/lib/mysql
 
 db:
