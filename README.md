@@ -6,6 +6,7 @@ which simplifies the handling of docker and does all the configuration necessary
 
 We created this package to make development on TYPO3 CMS projects easier and
 to create a simple reusable package which can easily be maintained and serves well for the standard project.
+The package is specifically targeted for [t3kit](https://github.com/t3kit) starter kit.
 
 Development will continue further as the package is already reused in several projects.
 Contributions and feedback are very welcome.
@@ -35,19 +36,15 @@ Add `lauri/dockert3kit` as dev dependency in your composer, using the latest sta
 
 *Example*:
 
-```
-composer require --dev lauri/dockert3kit '~2.2.1'
-```
+    composer require --dev lauri/dockert3kit '~2.2.2'
 
 *Note*:
 
 DockerT3kit uses port 80 for web access so you need to make sure that your host machine does not have any software
 using that port. Usually this happens if you have apache or nginx installed in your host machine, so you can stop it with:
 
-```
-sudo service apache2 stop
-sudo service nginx stop
-```
+    sudo service apache2 stop
+    sudo service nginx stop
 
 ## Run dockert3kit
 
@@ -72,9 +69,9 @@ The default database configuration for your `AdditionalConfiguration.php` is:
 
     ## Database connection
     $GLOBALS['TYPO3_CONF_VARS']['DB']['host'] = 'db';
-    $GLOBALS['TYPO3_CONF_VARS']['DB']['password'] = 'root';
-    $GLOBALS['TYPO3_CONF_VARS']['DB']['username'] = 'root';
-    $GLOBALS['TYPO3_CONF_VARS']['DB']['database'] = 'dockertypo3';
+    $GLOBALS['TYPO3_CONF_VARS']['DB']['password'] = 't3kit1234';
+    $GLOBALS['TYPO3_CONF_VARS']['DB']['username'] = 't3kit';
+    $GLOBALS['TYPO3_CONF_VARS']['DB']['database'] = 't3kit';
 
 Also note that there is a second database `dockertypo3_test` available for your testing context. The testing context url
 would be `test.hostname` and this hostname should be added to your `/etc/hosts` too.
@@ -129,10 +126,9 @@ your site in `Testing` context while running the tests has to be done inside the
 DockerT3kit adds additional script after starting all containers to fetch the IP address of web container and
 append it to `/etc/hosts` inside app container as below:
 
-```
-WEB_CONTAINER_IP    project-url
-WEB_CONTAINER_IP    test.project-url
-```
+
+    WEB_CONTAINER_IP    project-url
+    WEB_CONTAINER_IP    test.project-url
 
 You need to define the default test suite url in your `behat.yml` to use `http://test.project-url` and then you can
 run the behat tests without having to connect external selenium server

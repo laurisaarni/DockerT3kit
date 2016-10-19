@@ -8,8 +8,9 @@ echo "DB container staring ..."
 sleep 5
 RESULT=`mysql -h db -u t3kit -pt3kit1234 t3kit --skip-column-names -e "SHOW TABLES LIKE 'be_users'"`
 if [ "$RESULT" == "be_users" ]; then
-    echo "Table exist"
+    echo "Sample database tables already exists."
 else
+    echo "Importing sample database tables ..."
     /var/www/shared/db/restoredb.sh
 fi
 
