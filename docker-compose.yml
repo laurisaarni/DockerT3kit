@@ -29,6 +29,8 @@ db:
   image: mariadb:10.0
   volumes_from:
     - data
+  volumes:
+    - ./scripts/entrypoint/restoredb.sh:/restoredb.sh:ro
   ports:
     - "3307:3306"
   command: mysqld --user=root
