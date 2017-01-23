@@ -1,5 +1,7 @@
 # DockerT3kit helps you developing t3kit based TYPO3 CMS projects
 
+*Important* Use [t3kit_docker](https://github.com/t3kit/t3kit_docker) repository to run t3kit. This repository only provides the wrapper to be used by it.
+
 DockerT3kit creates the necessary Docker containers (webserver, database, php, mail and solr)
 to run your t3kit based TYPO3 CMS project. The package provides a wrapper script in `vendor/bin/dockert3kit`
 which simplifies the handling of docker and does all the configuration necessary.
@@ -152,10 +154,31 @@ host machine through `3307` port.
 
 From your host machine, you can access Apache Solr server from web interface:
 
-__Web__: [http://hostname:8282/solr/](http://hostname:8282/solr/) -> replace `hostname` with project name
+__Web__: [http://hostname:8983/solr/](http://hostname:8983/solr/) -> replace `hostname` with project domain
 
-From inside your `app` container, Apache Solr server will be available with following url: http://solr:8080/solr/
+From inside your `app` container, Apache Solr server will be available with following url: http://solr:8983/solr/
 
+Make sure you have following settings in solr extension file `Configuration/TypoScript/Solr/constants.txt`
+
+```
+plugin.tx_solr {
+  
+  	solr {
+  		scheme = http
+  		host = solr
+  		port = 8983
+  		path = /solr/core_en/
+  	}
+  
+  	search {
+  		targetPage = 0
+  
+  		results {
+  			resultsPerPage = 10
+  		}
+  	}
+  }
+```
 
 ## Attach to a running service
 
