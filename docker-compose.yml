@@ -69,6 +69,6 @@ mail:
     - "8025:8025"
 
 solr:
-  image: saarni/solr-for-typo3:1.0
+  image: saarni/solr-for-typo3:6.0.0
   ports:
    - "8983:8983"
