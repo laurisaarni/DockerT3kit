@@ -42,7 +42,7 @@ db:
     MYSQL_DATABASE: 't3kit'
 
 web:
-  image: nginx:1.7
+  image: nginx:1.11
   ports:
     - "80:80"
     - "443:443"
