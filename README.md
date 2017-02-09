@@ -34,11 +34,21 @@ Feel free to try out and let us know if you cannot wait.
 
 ## Install dockert3kit into your distribution
 
-Add `lauri/dockert3kit` as dev dependency in your composer, using the latest stable release is highly recommended.
+Add `lauri/dockert3kit` as dev dependency in your composer.
+
+***Note***
+
+**If you are using EXT:solr = 6.0.0 please use the 4.0.0 release**
 
 *Example*:
 
-    composer require --dev lauri/dockert3kit '~3.0.0'
+    composer require --dev lauri/dockert3kit '~4.0.0'
+
+**If you are using EXT:solr = 6.1.0 please use the 5.0.0 release**
+
+*Example*:
+
+    composer require --dev lauri/dockert3kit '~5.0.0'
 
 *Note*:
 
